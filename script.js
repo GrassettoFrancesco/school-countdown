@@ -21,7 +21,6 @@ function countdown() {
     minsEl.innerHTML = minutes;
     secsEl.innerHTML = seconds;
 }
-excludeSundays()
 // initial call
 countdown();
 
