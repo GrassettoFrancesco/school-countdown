@@ -10,15 +10,19 @@ function countdown() {
     const currentDate = new Date();
 
     // Exclude Saturday afternoons and all of Sunday
-    if (currentDate.getDay() === 6 && currentDate.getHours() >= 13) {
+    while (currentDate.getDay() === 6 && currentDate.getHours() >= 13) {
         // If it's Saturday after 13:00, move to Monday
-        newDate.setDate(newDate.getDate() + 2);
-    } else if (currentDate.getDay() === 0) {
+        currentDate.setDate(currentDate.getDate() + 2);
+    }
+    
+    while (currentDate.getDay() === 0) {
         // If it's Sunday, move to Monday
-        newDate.setDate(newDate.getDate() + 1);
-    } else if (currentDate.getDay() === 5 && currentDate.getHours() >= 13) {
-        // If it's Friday after 13:00, move to Monday
-        newDate.setDate(newDate.getDate() + 3);
+        currentDate.setDate(currentDate.getDate() + 1);
+    }
+
+    // If it's Friday after 13:00, move to Monday
+    if (currentDate.getDay() === 5 && currentDate.getHours() >= 13) {
+        currentDate.setDate(currentDate.getDate() + 3);
     }
 
     const totalSeconds = (newDate - currentDate) / 1000;
